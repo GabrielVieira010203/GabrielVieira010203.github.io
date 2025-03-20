@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .titulo {
+        text-align: center;
+      }
+
+      .fundo {
+        top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="titulo">Calculadora - IMC</h1>
+
+    <div>
+      <label for="id_NumeroAltura" for="id_NumeroPeso">
+        Digite seu peso aqui! <input type="number" id="id_NumeroPeso" /> Digite
+        sua altura aqui! <input type="number" id="id_NumeroAltura" />
+        <br /><br /><input
+          type="button"
+          value="Verificar IMC"
+          \
+          onclick="CalculadoraIMC()"
+        />
+      </label>
+    </div>
+    <p id="id_resultadoIMC"></p>
+    <script src="index.js"></script>
+  </body>
+</html>
