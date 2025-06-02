@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabuada</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="pai">
+      <form id="id_formulario" action="">
+        <h1 class="oo">Tabuada</h1>
+
+        <label for="id_numero" class="yy"
+          >Número:
+
+          <input
+            type="number"
+            name="numero"
+            id="id_numero"
+            placeholder="Informe um número"
+          />
+        </label>
+
+        <br /><br />
+        <label for="operacao" class="yy">
+          Operação:
+          <select name="operacao" id="operacao">
+            <option value="" disabled selected>Selecione a operação</option>
+            <option value="+">Adição</option>
+            <option value="-">Subtração</option>
+            <option value="*">Multiplicação</option>
+            <option value="/">Divisão</option>
+          </select>
+        </label>
+
+        <br /><br />
+        <div class="botoes">
+          <button type="submit">Calcular</button>
+          <button id="id_ii" type="reset">Limpar</button>
+        </div>
+
+        <div id="resultado"></div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

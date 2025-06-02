@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ll">
+      <header class="kk">
+        <h1>Cadastro</h1>
+      </header>
+
+      <form
+        action="https://webhook.site/0cc63d27-891f-4ac3-a41b-8a992ba88721"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="id_nome" class="ii"
+          >Nome completo:
+          <input
+            type="text"
+            name="nome"
+            id="id_nome"
+            minlength="5"
+            maxlength="200"
+            placeholder="Informe seu nome completo"
+            required
+          />
+          <br /> </label
+        ><br />
+
+        <!-- <input type="password" name="" id="" />
+      <input type="email" name="" id="" />
+      <input type="url" name="" id="" />
+      <input type="tel" name="" id="" />
+      <input type="data" name="" id="" /> -->
+        <div class="ii">
+          <label for="mes">Mês de aniversário:</label>
+          <input class="dd" type="month" id="mes" name="mes" /><br />
+
+          <label for="semana">Semana do ano:</label>
+          <input class="dd" type="week" id="semana" name="semana" />
+
+          <label for="hora">Hora preferida:</label>
+          <input class="dd" type="time" id="hora" name="hora" /><br />
+        </div>
+        <br />
+        <label for="id_file">
+          Arquivo:
+          <input
+            type="file"
+            name="arquivo"
+            id="id_file"
+            accept=".jpg, .png, .pdf, .docx, .txt"
+            required
+          />
+        </label>
+        <br />
+
+        <fieldset>
+          <legend>Hobbies</legend>
+          <label for="id_fut">
+            <input
+              type="range"
+              name="hobbies"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              id="id_fut"
+              value="futebol"
+            />
+            Futebol
+          </label>
+
+          <label for="id_fut">
+            <input
+              type="range"
+              name="hobbies"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              id="id_basquete"
+              value="futebol"
+            />
+            Basquete
+          </label>
+
+          <label for="id_fut">
+            <input
+              type="range"
+              name="hobbies"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              id="id_fut"
+              value="futebol"
+            />
+            Futebol
+          </label>
+        </fieldset>
+
+        <div class="botoes">
+          <button type="submit">Enviar</button>
+          <button type="reset">Zerar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
