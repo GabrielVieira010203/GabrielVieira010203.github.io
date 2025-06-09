@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Editoras</title>
+  <style>
+    /* Container geral da página de editoras */
+    .editoras-container {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f9fbfd;
+      min-height: 100vh;
+    }
+
+    /* Formulário de cadastro de editoras */
+    .editoras-form {
+      background-color: #f0f4f8;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      max-width: 400px;
+    }
+
+    .editoras-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .editoras-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .editoras-form button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .editoras-form button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Tabela de editoras */
+    .editoras-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 800px;
+    }
+
+    .editoras-table thead {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .editoras-table th,
+    .editoras-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .editoras-table th[colspan="2"] {
+      text-align: center;
+    }
+
+    /* Botões dentro da tabela */
+    .editoras-table td button {
+      padding: 6px 12px;
+      margin-right: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      color: white;
+    }
+
+    .editoras-table td form {
+      display: inline;
+    }
+
+    /* Botão deletar */
+    .editoras-table td button[type="submit"] {
+      background-color: #dc3545;
+    }
+
+    .editoras-table td button[type="submit"]:hover {
+      background-color: #a71d2a;
+    }
+
+    /* Botão editar */
+    .editoras-table td button[type="button"] {
+      background-color: #28a745;
+    }
+
+    .editoras-table td button[type="button"]:hover {
+      background-color: #1e7e34;
+    }
+
+    /* Responsividade simples */
+    @media (max-width: 600px) {
+      .editoras-form,
+      .editoras-table {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .editoras-table th,
+      .editoras-table td {
+        padding: 8px 10px;
+      }
+    }
+
+    /* Modal para edição */
+    #editModal {
+      display: none; /* padrão */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 10000;
+      width: 320px;
+      font-family: Arial, sans-serif;
+    }
+
+    #editModal form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    #editModal form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    #editModal form button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 10px;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    #editModal form button[type="submit"] {
+      background-color: #007bff;
+    }
+
+    #editModal form button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #editModal form button[type="button"] {
+      background-color: #6c757d;
+    }
+
+    #editModal form button[type="button"]:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+
+<div class="editoras-container">
+
+  <form action="/editoras" method="post" class="editoras-form">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required />
+
+    <label for="cnpj">CNPJ:</label>
+    <input type="text" id="cnpj" name="cnpj" required />
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <table class="editoras-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th colspan="2" style="text-align: center;">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each editorasAtivas}}
+        <tr>
+          <td>{{this.nome}}</td>
+          <td>{{this.cnpj}}</td>
+          <td>
+            <form action="/editoras/{{this.id}}/excluir" method="POST">
+              <button type="submit">Deletar</button>
+            </form>
+          </td>
+          <td>
+            <button
+              type="button"
+              onclick="openModal('{{this.id}}', '{{this.nome}}', '{{this.cnpj}}')"
+            >Editar</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <!-- Modal para edição -->
+  <div id="editModal">
+    <form id="editForm" method="POST">
+      <input type="hidden" name="_method" value="put" />
+      <input type="hidden" id="editId" name="id" />
+
+      <label for="editNome">Nome:</label>
+      <input type="text" id="editNome" name="nome" required />
+
+      <label for="editCnpj">CNPJ:</label>
+      <input type="text" id="editCnpj" name="cnpj" required />
+
+      <button type="submit">Salvar</button>
+      <button type="button" onclick="closeModal()">Cancelar</button>
+    </form>
+  </div>
+
+</div>
+
+<script>
+  function openModal(id, nome, cnpj) {
+    document.getElementById('editId').value = id;
+    document.getElementById('editNome').value = nome;
+    document.getElementById('editCnpj').value = cnpj;
+    const form = document.getElementById('editForm');
+    form.action = `/editoras/${id}/edit`;
+    document.getElementById('editModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('editModal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

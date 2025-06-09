@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Livros</title>
+  <style>
+   
+    .livro-container {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f9fbfd;
+      min-height: 100vh;
+    }
+
+  
+    .livro-form {
+      background-color: #f0f4f8;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      max-width: 400px;
+    }
+
+    .livro-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .livro-form input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    .livro-form button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .livro-form button:hover {
+      background-color: #0056b3;
+    }
+
+    
+    .livro-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 800px;
+    }
+
+    .livro-table thead {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .livro-table th,
+    .livro-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .livro-table th[colspan="2"] {
+      text-align: center;
+    }
+
+   
+    .livro-table td button {
+      padding: 6px 12px;
+      margin-right: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+      color: white;
+    }
+
+    .livro-table td form {
+      display: inline;
+    }
+
+  
+    .livro-table td button[type="submit"] {
+      background-color: #dc3545;
+    }
+
+    .livro-table td button[type="submit"]:hover {
+      background-color: #a71d2a;
+    }
+
+   
+    .livro-table td button[type="button"] {
+      background-color: #28a745;
+    }
+
+    .livro-table td button[type="button"]:hover {
+      background-color: #1e7e34;
+    }
+
+   
+    @media (max-width: 600px) {
+      .livro-form,
+      .livro-table {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .livro-table th,
+      .livro-table td {
+        padding: 8px 10px;
+      }
+    }
+
+  
+    dialog.livro-modal {
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      width: 320px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+
+    dialog.livro-modal::backdrop {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    dialog.livro-modal h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+
+    dialog.livro-modal label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    dialog.livro-modal input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    dialog.livro-modal button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 10px;
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    dialog.livro-modal button[type="submit"] {
+      background-color: #007bff;
+    }
+
+    dialog.livro-modal button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    dialog.livro-modal button.cancel-btn {
+      background-color: #6c757d;
+    }
+
+    dialog.livro-modal button.cancel-btn:hover {
+      background-color: #5a6268;
+    }
+  </style>
+</head>
+<body>
+  <div class="livro-container">
+    <form class="livro-form" action="/livros" method="post">
+      <label for="titulo">Título:</label>
+      <input type="text" id="titulo" name="titulo" required />
+
+      <label for="autor">Autor:</label>
+      <input type="text" id="autor" name="autor" required />
+
+      <label for="genero">Genero:</label>
+      <input type="text" id="genero" name="genero" required />
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <table class="livro-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+          <th>Gênero</th>
+          <th colspan="2" style="text-align: center;">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each livrosAtivos}}
+        <tr>
+          <td>{{this.titulo}}</td>
+          <td>{{this.autor}}</td>
+          <td>{{this.genero}}</td>
+          <td>
+            <form action="/livros/{{this.id}}/excluir" method="POST">
+              <button type="submit">Deletar</button>
+            </form>
+          </td>
+          <td>
+            <button
+              type="button"
+              onclick="openModal('{{this.id}}', '{{this.titulo}}', '{{this.autor}}', '{{this.genero}}')"
+            >
+              Editar
+            </button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+ 
+  <dialog class="livro-modal" id="editModal">
+    <h3>Editar Livro</h3>
+    <form method="dialog" id="editForm">
+      <input type="hidden" id="editId" name="id" />
+      <label for="editTitulo">Título:</label>
+      <input type="text" id="editTitulo" name="titulo" required />
+
+      <label for="editAutor">Autor:</label>
+      <input type="text" id="editAutor" name="autor" required />
+
+      <label for="editGenero">Genero:</label>
+      <input type="text" id="editGenero" name="genero" required />
+
+      <button type="submit">Salvar</button>
+      <button type="button" class="cancel-btn" onclick="closeModal()">Cancelar</button>
+    </form>
+  </dialog>
+
+  <script>
+   
+    function openModal(id, titulo, autor, genero) {
+      const modal = document.getElementById('editModal');
+      document.getElementById('editId').value = id;
+      document.getElementById('editTitulo').value = titulo;
+      document.getElementById('editAutor').value = autor;
+      document.getElementById('editGenero').value = genero;
+      modal.showModal();
+    }
+
+   
+    function closeModal() {
+      const modal = document.getElementById('editModal');
+      modal.close();
+    }
+
+    
+    const editForm = document.getElementById('editForm');
+    editForm.addEventListener('submit', function (event) {
+      event.preventDefault(); 
+
+      const id = document.getElementById('editId').value;
+      const titulo = document.getElementById('editTitulo').value;
+      const autor = document.getElementById('editAutor').value;
+      const genero = document.getElementById('editGenero').value;
+
+     
+      console.log('Salvar livro:', { id, titulo, autor, genero });
+
+      closeModal();
+
+    
+    });
+  </script>
+</body>
+</html>
