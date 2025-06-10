@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro Dos Alunos</title>
+    <link rel="stylesheet" href="croud.css" />
+  </head>
+  <body>
+    <form id="id_formulario">
+      <fieldset>
+        <div class="cad"><div class="cadastro">𝐂𝐚𝐝𝐚𝐬𝐭𝐫𝐨 𝐝𝐨𝐬 𝐀𝐥𝐮𝐧𝐨𝐬</div></div>
+        <br />
+        <label for="id_nome"
+          >𝐍𝐨𝐦𝐞
+          <input
+            type="text"
+            id="id_nome"
+            placeholder="Informe o nome"
+            required
+          />
+        </label>
+
+        <label for="id_matricula"
+          >𝐌𝐚𝐭𝐫í𝐜𝐮𝐥𝐚
+          <input
+            type="number"
+            id="id_matricula"
+            placeholder="Informe a matrícula"
+            required
+          />
+        </label>
+
+        <div class="botoes">
+          <button type="submit">𝗖𝗮𝗱𝗮𝘀𝘁𝗿𝗮𝗿</button>
+          <input type="button" id="id_consultar" value="𝗖𝗼𝗻𝘀𝘂𝗹𝘁𝗮𝗿" />
+        </div>
+      </fieldset>
+    </form>
+
+    <br />
+
+    <div>
+      <h2>𝙇𝙄𝙨𝙩𝙖 𝙙𝙚 𝘼𝙡𝙪𝙣𝙤𝙨</h2>
+      <div class="listt"><ul id="listaDeAlunos"></ul></div>
+    </div>
+
+    <dialog id="dialog_editar">
+      <form id="form_editar">
+        <fieldset>
+          <div class="edit"><legend>𝐄𝐝𝐢𝐭𝐚𝐫 𝐀𝐥𝐮𝐧𝐨</legend></div>
+
+          <label for="editar_nome"
+            >𝐍𝐨𝐦𝐞 <input type="text" id="editar_nome" required /> </label
+          ><br />
+
+          <label for="editar_matricula"
+            >𝐌𝐚𝐭𝐫í𝐜𝐮𝐥𝐚
+            <input type="number" id="editar_matricula" required /> </label
+          ><br />
+
+          <div class="botoes">
+            <button id="salvar_edicao">𝐒𝐚𝐥𝐯𝐚𝐫</button>
+            <button type="button" id="fechar_edicao">𝐅𝐞𝐜𝐡𝐚𝐫</button>
+          </div>
+        </fieldset>
+      </form>
+    </dialog>
+
+    <script type="module" src="Aluno.js"></script>
+    <script type="module" src="principal.js"></script>
+  </body>
+</html>

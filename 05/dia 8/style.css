@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(185, 179, 179);
+  font-size: 12px;
+}
+.campo {
+  margin: 2px;
+}
+
+form > fieldset {
+  display: flex;
+  flex-direction: column;
+}

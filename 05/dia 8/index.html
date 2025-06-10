@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="formulario">
+      <fieldset>
+        <legend>Cadastro</legend>
+
+        <label for="id_nome"
+          >Nome:
+          <input
+            type="text"
+            id="id_nome"
+            placeholder="Informe o nome"
+            required
+            class="campo"
+          />
+        </label>
+
+        <label for="id_matricula"
+          >Matricula:
+          <input
+            type="number"
+            id="id_matricula"
+            placeholder="Informe a matricula"
+            required
+            class="campo"
+          />
+        </label>
+
+        <div class="botoes">
+          <button type="submit">Cadastrar</button>
+        </div>
+      </fieldset>
+    </form>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="aluno.js"></script>
+  </body>
+</html>

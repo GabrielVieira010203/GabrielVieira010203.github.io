@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ll">
+      <header class="kk">
+        <h1>Cadastro</h1>
+      </header>
+
+      <form
+        action="https://webhook.site/0cc63d27-891f-4ac3-a41b-8a992ba88721"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="id_nome"
+          >Nome completo:
+          <input
+            class="uu"
+            type="text"
+            name="nome"
+            id="id_nome"
+            minlength="5"
+            maxlength="200"
+            placeholder="Informe seu nome completo"
+            required
+          />
+          <br /> </label
+        ><br />
+
+        <!-- <input type="password" name="" id="" />
+      <input type="email" name="" id="" />
+      <input type="url" name="" id="" />
+      <input type="tel" name="" id="" />
+      <input type="data" name="" id="" /> -->
+        <div class="ii">
+          <label for="email">Email:</label>
+          <input
+            class="dd"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Informe seu email"
+            required
+          /><br />
+
+          <label for="senha">Senha:</label>
+          <input
+            class="dd"
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Informe sua senha"
+            required
+          /><br />
+
+          <label for="telefone">Telefone:</label>
+          <input
+            class="dd"
+            type="tel"
+            id="telefone"
+            name="telefone"
+            placeholder="Informe seu telefone"
+            required
+          /><br />
+
+          <label for="telefone">Data de nascimento:</label>
+          <input
+            class="dd"
+            type="tel"
+            id="telefone"
+            name="telefone"
+            placeholder="dd/mm/aaaa"
+            required
+          />
+
+          <br />
+
+          <label for="telefone">Site:</label>
+          <input
+            class="dd"
+            type="url"
+            id="site"
+            name="site"
+            placeholder="insira a url"
+            required
+          />
+
+          <br />
+
+          <label for="id_file">Foto:</label>
+
+          <input
+            class="ww"
+            type="file"
+            name="foto"
+            id="id_foto"
+            accept=".jpg, .png, .pdf, .docx, .txt"
+            required
+          />
+
+          <br />
+
+          <label for="biografia">Biografia:</label>
+          <input
+            class="bb"
+            class="dd"
+            type="text"
+            id="biografia"
+            name="biografia"
+          />
+        </div>
+        <br />
+
+        <fieldset>
+          <legend>Níveis de conhecimento</legend>
+          <label for="id_html">
+            <input
+              class="pp"
+              type="range"
+              name="hobbies"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              id="id_html"
+              value="html"
+              required
+            />
+            HTML
+          </label>
+
+          <label for="id_css">
+            <input
+              type="range"
+              name="hobbies"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              id="id_css"
+              value="css"
+              required
+            />
+            CSS
+          </label>
+
+          <label for="id_js">
+            <input
+              type="range"
+              name="hobbies"
+              min="0"
+              max="10"
+              step="1"
+              value="5"
+              id="id_js"
+              value="5"
+              required
+            />
+            JS
+          </label>
+        </fieldset>
+        <br />
+
+        <div class="botoes">
+          <button type="submit">Enviar</button>
+          <button type="reset">Zerar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

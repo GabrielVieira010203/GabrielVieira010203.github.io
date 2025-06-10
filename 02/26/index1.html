@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #formulario {
+        width: 100px;
+      };
+      
+    
+    
+
+    </style>
+  </head>
+  <body> <form id="formulario" autocomplete="off">
+  
+   <fieldset>
+    <legend>Cálculos IMC</legend>
+
+    <label for="id_nome">Nome:</label>
+    <input
+    type="text"
+    id="id_nome"
+    class="nome"
+    name="nome"
+
+    autofocus
+    placeholder="informe seu nome"
+    minlength="2"
+    maxlength="1000"
+    required
+
+    >
+</label>
+
+<label for="id_altura">Altura:
+    <input
+        type="text"
+        id="id_altura"
+        class="numeros"
+        name="altura"
+        
+        placeholder="Informe sua altura"
+        minlength="2"
+        maxlength="4"
+        required
+    >
+</label>
+
+
+<label for="id_peso">Peso:
+    <input
+        type="text"
+        id="id_peso"
+        class="numeros"
+        name="peso"
+        
+        placeholder="Informe sua altura"
+        minlength="2"
+        maxlength="8"
+        required
+    >
+</label>
+
+<div id="botoes">
+    <button type="reset" id="nick">Limpar</button>
+    <button type="submit" id="joao" >Verificar</button>
+</div>
+
+<div id="id_resultado"></div>
+
+
+
+   </fieldset>
+
+   </form>
+
+    <script src="index1.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+.kk {
+  text-align: center;
+  border-radius: 5px;
+}
+
+.ll {
+  border: solid 5px;
+  border-radius: 5px;
+}
+
+.ii {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.dd {
+  width: 200px;
+  height: 18px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.ww {
+  width: 290px;
+  height: 26px;
+  border: solid 0.5px;
+  margin-left: 10px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-content: center;
+}
+
+.bb {
+  height: 100px;
+  width: 400px;
+
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-content: start;
+  flex-wrap: nowrap;
+}
+
+.uu {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.botoes {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

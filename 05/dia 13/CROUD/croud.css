@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #208825 0%, #d8ee17 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form fieldset {
+  border: 2px solid #3ca845;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  background: rgba(47, 155, 95, 0.486);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 7px 12px rgb(49, 38, 7);
+}
+
+legend {
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  max-width: 260px;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #2838c4;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  box-shadow: 0 0 0 3px rgba(169, 195, 74, 0.4);
+}
+
+.botoes {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+button,
+input[type="button"] {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.2s;
+  background: linear-gradient(135deg, #a3c34a 0%, #d5ff3b 100%);
+  border-radius: 10px;
+  color: #0a8b13;
+}
+
+button:hover,
+input[type="button"]:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+  color: rgb(13, 194, 52);
+}
+
+h2 {
+  color: #06351a;
+  text-align: center;
+}
+
+#listaDeAlunos {
+  list-style: none;
+  padding: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#listaDeAlunos li {
+  background: rgba(255, 255, 255, 0.85);
+  border-left: 5px solid #8bc34a;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  height: 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#listaDeAlunos button {
+  background: #76c71a;
+  color: #000000;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  padding: 0.35rem 0.6rem;
+}
+
+#form_editar fieldset {
+  background-color: #2b9227;
+  height: 250px;
+  width: 250px;
+  padding: 1.5rem 2rem;
+  border: none;
+}
+
+#form_editar legend {
+  color: #ffffff;
+  font-weight: bold;
+}
+.cadastro {
+  font-size: 1.2rem;
+  font-weight: 70;
+  padding: 0.3rem 1.2rem;
+  border-radius: 8px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1b5e20 0%, #43a047 50%, #8bc34a 100%);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+  display: inline-block;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.cad {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#id_formulario {
+  margin-top: 50px;
+}
+
+#dialog_editar {
+  background-color: #2b9227;
+  border-radius: 10px;
+  border: none;
+}
+
+.edit {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#dialog_editar button {
+  color: rgb(39, 70, 43) !important;
+}
+
+#listaDeAlunos li {
+  background: rgba(255, 255, 255, 0.92);
+  border-left: 5px solid #8bc34a;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 420px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.listt {
+  margin-right: 60px;
+}

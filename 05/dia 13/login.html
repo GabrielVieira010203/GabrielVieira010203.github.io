@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+    <link rel="stylesheet" href="style principal.css">
+  </head>
+  
+  <body class="campo">
+    <div class="kk">
+    <h2 class="lo">Login </h2>
+    <form id="id_formulario">
+      <div class="oo">
+        <label for="id_email">
+          Email:
+          <input
+          class="ema"
+            type="email"
+            name="email"
+            id="id_email"
+            minlength="5"
+            maxlength="200"
+            placeholder="Informe seu email"
+            required
+          /> </label
+        ><br /><br>
+
+        <label for="id_senha">
+
+          Senha:
+          <input
+          class="sen"
+            type="password"
+            name="senha"
+            id="id_senha"
+            minlength="5"
+            maxlength="200"
+            placeholder="Informe sua senha"
+            required
+          />
+        </label>
+      </div>
+      <br />
+
+     <div class="bb"><button class="bo" type="submit">Entrar</button></div> 
+    </form></div>
+    <div class="message" id="mensagem"></div>
+
+    <script type="module" src="loginscript.js"></script>
+
+   
+    </script>
+  </body>
+</html>
